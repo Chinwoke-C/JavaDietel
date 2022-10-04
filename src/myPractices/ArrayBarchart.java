@@ -15,7 +15,7 @@ public class ArrayBarchart {
                   counter * 10, counter * 10 + 9);
       }
       for (int stars = 0; stars < myArray[counter]; stars++){
-          System.out.print(" *");
+          System.out.printf("  *");
       }
         System.out.println("");
            }
