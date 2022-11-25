@@ -1,33 +1,79 @@
 package myPractices;
 
-import java.util.Scanner;
-
 public class BMI {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        System.out.print("Enter your weight in pounds: ");
-        double weight = input.nextDouble();
+    private String name;
+    private int age;
+    private double weight;
+    private double height;
+    public static final double KILOGRAMS_PER_POUND = 0.45359237;
+    public  static  final double METERS_PER_INCH = 0.0254;
 
-        System.out.print("Enter your height in metres: ");
-        double height = input.nextDouble();
+    public BMI(String name, int age, double weight,double height) {
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.height = height;
+    }
+    public  double getBMI() {
+        double bmi = weight * KILOGRAMS_PER_POUND / ((height * METERS_PER_INCH) * (height * METERS_PER_INCH));
+        return Math.round(bmi * 100) / 100.0;
+    }
+        public String validateStatus(){
 
-        double bmi = (weight * 703 )/ (height * height);
+      validateUnderweight();
+         validateNormalWeight();
+         validateOverweight();
 
-        System.out.printf("Your body mass index is: %.1f%n", bmi);
-
-        if (bmi < 18){
-            System.out.println("You are underweight, Eat more!");
+            return "Obese";
         }
-        if (bmi > 18 && bmi < 25){
-            System.out.println("You are doing well!");
+        public void validateUnderweight(){
+            double bmi = getBMI();
+            boolean underweight = bmi < 18.5;
+            if (underweight) throw  new IllegalStateException("You are underweight eat more");
         }
-        if (bmi > 25 && bmi < 30){
-            System.out.println("You are overweight");
-        }
-        if (bmi > 30){
-            System.out.println("You are obese oh!");
-        }
-
+        public void validateNormalWeight(){
+            boolean normal = getBMI() < 25;
+            if (normal) {
+                System.out.println("Your weight is normal keep it up");
+            }
+    }
+    public void validateOverweight(){
+        boolean overWeight = getBMI() < 30;
+        if ( overWeight) throw new IllegalStateException("Your are getting to fat");
 
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
 }
+
+
