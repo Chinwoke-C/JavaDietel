@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class CreditLimitCalc {
     public static void main(String[] args) {
+        final int allowedCredit = 10000;
 
     Scanner input = new Scanner(System.in);
     System.out.print("Enter account no: ");
@@ -18,10 +19,6 @@ public class CreditLimitCalc {
 
         System.out.print("Enter the total credit applied to customer account: ");
         int credit = input.nextInt();
-
-        final int allowedCredit = 10000;
-
-
        int NewBalance =  (balance + totalCharges) - credit;
 
        if (NewBalance < allowedCredit){
