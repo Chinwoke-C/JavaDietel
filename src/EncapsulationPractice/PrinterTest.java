@@ -1,8 +1,17 @@
 package EncapsulationPractice;
 
-//public class PrinterTest {
-//    public static void main(String[] args) {
-//        Printer printer = new Printer(80, 5,"kakashi");
-//        System.out.println("Number of pages before printing is " + printer.getNumberOfPagesPrinted());
-//        System.out.printf("The number of pages after printing is %d",printer.print(5));
-//    }
+ public class PrinterTest {
+    public static void main(String[] args) {
+        Printer printer = new Printer(50, false);
+        System.out.println("initial page count = "+ printer.getPagesPrinted());
+        int pagesPrinted = printer.printPages(4);
+        System.out.println("Pages printed was "+ pagesPrinted +
+                "new total print count for printer = " + printer.getPagesPrinted());
+    pagesPrinted = printer.printPages(2);
+        System.out.println("Pages printed was "+ pagesPrinted +
+                "new total print count for printer = " + printer.getPagesPrinted());
+        printer.fillToner(700);
+
+    }
+
+}
