@@ -1,9 +1,9 @@
 package Chapter9;
 
 public class CommissionEmployee {
-    private final String firstName;
-    private final String lastName;
-    protected final String socialSecurityNumber;
+    private  String firstName;
+    private  String lastName;
+    private String socialSecurityNumber;
     private double grossSales;
     private double commissionRate;
 
@@ -16,6 +16,19 @@ public class CommissionEmployee {
         this.grossSales = grossSales;
         this.commissionRate = commissionRate;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setSocialSecurityNumber(String socialSecurityNumber) {
+        this.socialSecurityNumber = socialSecurityNumber;
+    }
+
     public void validateGrossSales(double grossSales) {
         boolean isInvalid = grossSales < 0.0;
         if (isInvalid) throw new IllegalArgumentException("Gross sales must be above 0.0");
